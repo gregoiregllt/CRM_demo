@@ -33,7 +33,7 @@ pinecone.init(
 
 st.title('Connected CRM')
 
-st.image("excel_crm.png",width=600)
+st.image("excel_crm.png",width=900)
 
 template = """
 
