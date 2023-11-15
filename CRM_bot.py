@@ -55,7 +55,7 @@ pinecone.init(
 )
 
 # # pinecone.list_indexes()
-
+pinecone.delete_index("lovebot")
 index_name = "crm"
 
 # First, check if our index already exists. If it doesn't, we create it
@@ -79,7 +79,7 @@ from langchain.chat_models import ChatOpenAI
 
 llm = ChatOpenAI(
     openai_api_key=os.getenv('OPENAI_API_KEY'),
-    model='gpt-4-vision-preview' #gpt-3.5-turbo-1106
+    model='gpt-4' #gpt-3.5-turbo-1106
 )
 
 ###################################################################

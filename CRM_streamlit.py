@@ -33,15 +33,18 @@ pinecone.init(
 
 st.title('Connected CRM')
 
-st.image("excel_crm.png",width=200)
+st.image("excel_crm.png",width=600)
 
 template = """
+
+    Tu es un assistant de CRM. Tu vas recevoir des infos sur un CRM d'une entreprise de logiciel et on va te poser des questions dessus.
 
     Question :
     {question}
 
     Règles:
 
+    -Tu dois être straight to the point, professionnel et bref
 
     --------------------
     Voici des informations sur lesquelles tu peux te baser:
@@ -61,7 +64,7 @@ def generate_response(input_text):
                 search_kwargs={'k': 5})
     llm = ChatOpenAI(
             openai_api_key=api_key, #os.getenv('OPENAI_API_KEY'),
-            model='gpt-3.5-turbo-1106' #gpt-4
+            model='gpt-4' #gpt-4
         )
     rag_chain = ({"context": retriever, "question": RunnablePassthrough()} | rag_prompt_custom | llm)
     # Tentez de générer une réponse
