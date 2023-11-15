@@ -61,7 +61,7 @@ def generate_response(input_text):
     docsearch = Pinecone.from_existing_index(index_name="crm", embedding=embeddings)
     retriever=docsearch.as_retriever(
                 search_type="mmr",
-                search_kwargs={'k': 8})
+                search_kwargs={'k': 10})
     llm = ChatOpenAI(
             openai_api_key=api_key, #os.getenv('OPENAI_API_KEY'),
             model='gpt-4' #gpt-4
